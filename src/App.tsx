@@ -1,10 +1,13 @@
 import S from './App.module.scss'
 import cn from 'classnames'
+import { Header } from './components/Header/Header'
+import { MainPage } from './pages/MainPage/MainPage'
 
-function App() {
+export const App = () => {
 	return (
-		<div className={cn(S.container)}>
-			<h1>ToolKit</h1>
+		<div className={cn(S.app)}>
+			<Header/>
+			<MainPage/>
 		</div>
 	)
 }

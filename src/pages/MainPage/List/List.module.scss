@@ -1,0 +1,13 @@
+.list{
+	background-color: #eee;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.item {
+	display: flex;
+	.field {
+		margin: 5px;
+	}
+}
