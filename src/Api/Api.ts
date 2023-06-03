@@ -35,4 +35,20 @@ export const api = {
 			)
 		?? []
 	},
+
+	currentUserRepositories: async(token:string):Promise<TListRepository[]> => {
+		return await gqlQuery(token, queries.currentUserRepositories())
+			.then(d => d.data.viewer.repositories.edges.map((edge:any) => edge.node)) // TODO typing
+			.then(d => d.map((node:any) => ({
+						id:node.id,
+						name:node.name,
+						stars: node.stargazerCount,
+						last_commit: node.updatedAt,
+						ownerName: node.owner.login,
+						link: node.owner.url
+					})
+				)
+			)
+		?? []
+	},
 }
