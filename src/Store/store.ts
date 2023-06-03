@@ -1,5 +1,6 @@
-import { makeObservable, observable, action } from 'mobx'
+import { makeObservable, observable, action, autorun } from 'mobx'
 import { IRepository, TListRepository } from '../types/Repository'
+import { api } from '../Api/Api'
 
 export class CAppStore{
 	token: string
@@ -48,3 +49,7 @@ export const Store = new CAppStore()
 // eslint-disable-next-line
 // @ts-ignore
 globalThis.Store=Store
+
+autorun(async() => {
+		if(Store.token.length>0)Store.setReporitories(await api.currentUserRepositories(Store.token))
+})

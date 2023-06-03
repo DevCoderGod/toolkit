@@ -10,14 +10,6 @@ import { api } from '../../Api/Api'
 
 export const MainPage = observer(function MainPage(){
 
-	useEffect(()=>{
-		async function getRepositories(){
-			Store.setReporitories(await api.currentUserRepositories(Store.token))
-		}
-
-		if(Store.token.length>0)getRepositories()
-	},[Store.token])
-
 	return(
 		<div className={cn(S.main)}>
 			<Search/>
