@@ -1,24 +1,24 @@
 export const userRepositories = (login:string, amount:number) => ({
 	query:`query($log:String!) {
 		user(login:$log){
-				repositories(first:${amount}) {
-					totalCount
-					pageInfo {
-						endCursor
-						startCursor
-						hasNextPage
-					}
-					edges{
-						node {
-							id
-							name
-							stargazerCount
-							updatedAt
-							owner {
-								login
-								url
-							}
+			repositories(first:${amount}) {
+				totalCount
+				pageInfo {
+					endCursor
+					startCursor
+					hasNextPage
+				}
+				edges{
+					node {
+						id
+						name
+						stargazerCount
+						updatedAt
+						owner {
+							login
+							url
 						}
+					}
 				}
 			}
 		}
