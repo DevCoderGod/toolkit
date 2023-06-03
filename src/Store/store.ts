@@ -1,10 +1,10 @@
 import { makeObservable, observable, action } from 'mobx'
-import { IRepository } from '../types/Repository'
+import { IRepository, TListRepository } from '../types/Repository'
 
 export class CAppStore{
 	token: string
 	search: string
-	reporitories: IRepository[]
+	reporitories: TListRepository[]
 	repo: IRepository | null
 
 	constructor() {
@@ -37,7 +37,7 @@ export class CAppStore{
 		this.repo = r
 	}
 
-	setReporitories = (rs:IRepository[]) => {
+	setReporitories = (rs:TListRepository[]) => {
 		this.reporitories = rs
 	}
 }
