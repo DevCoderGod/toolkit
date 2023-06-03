@@ -22,18 +22,18 @@ const gqlQuery = async(token:string, query:object) => fetch("https://api.github.
 
 export const api = { // TODO api to class Api{constructor(token:string)}
 
-	userRepositories: async(token:string, login:string):Promise<TListRepository[]> => {
-		return await gqlQuery(token, queries.userRepositories(login))
+	userRepositories: async(token:string, login:string, amount:number):Promise<TListRepository[]> => {
+		return await gqlQuery(token, queries.userRepositories(login, amount))
 			.then(d => getRepositories(d.data.user.repositories))
 	},
 
-	currentUserRepositories: async(token:string):Promise<TListRepository[]> => {
-		return await gqlQuery(token, queries.currentUserRepositories())
+	currentUserRepositories: async(token:string, amount:number):Promise<TListRepository[]> => {
+		return await gqlQuery(token, queries.currentUserRepositories(amount))
 			.then(d => getRepositories(d.data.viewer.repositories))
 	},
 
-	repositories: async(token:string,name:string):Promise<TListRepository[]> => {
-		return await gqlQuery(token, queries.repositories(name))
+	repositories: async(token:string,name:string, amount:number):Promise<TListRepository[]> => {
+		return await gqlQuery(token, queries.repositories(name, amount))
 			.then(d => getRepositories(d.data.search))
 	},
 }

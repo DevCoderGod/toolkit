@@ -1,6 +1,6 @@
-export const repositories = (name:string, amount = 10) => ({
+export const repositories = (name:string, amount:number) => ({
 	query:`query($name:String!){
-		search(query:$name,type:REPOSITORY,first:10) {
+		search(query:$name,type:REPOSITORY,first:${amount}) {
 			repositoryCount
 			edges {
 				node{

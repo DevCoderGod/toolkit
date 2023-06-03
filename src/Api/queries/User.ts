@@ -1,4 +1,4 @@
-export const userRepositories = (login:string, amount = 10) => ({
+export const userRepositories = (login:string, amount:number) => ({
 	query:`query($log:String!) {
 		user(login:$log){
 				repositories(first:${amount}) {
@@ -26,7 +26,7 @@ export const userRepositories = (login:string, amount = 10) => ({
 	variables: {log: login}
 })
 
-export const currentUserRepositories = (amount = 10) => ({
+export const currentUserRepositories = (amount:number) => ({
 	query:`query{
 		viewer{
 			repositories(first:${amount}) {
