@@ -1,6 +1,7 @@
-import { currentUserRepositories, userRepositories } from './userRepositories'
+import { currentUserRepositories, repositories, userRepositories } from './userRepositories'
 
 export const queries = {
 	userRepositories,
-	currentUserRepositories
+	currentUserRepositories,
+	repositories
 }

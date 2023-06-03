@@ -51,5 +51,12 @@ export const Store = new CAppStore()
 globalThis.Store=Store
 
 autorun(async() => {
-		if(Store.token.length>0)Store.setReporitories(await api.currentUserRepositories(Store.token))
+	if(Store.token.length>0) Store.setReporitories(await api.currentUserRepositories(Store.token))
+})
+
+autorun(async() => {
+	if(Store.search.length>0){
+		Store.setReporitories(await api.repositories(Store.token,Store.search))
+	}
+	else Store.setReporitories(await api.currentUserRepositories(Store.token))
 })
