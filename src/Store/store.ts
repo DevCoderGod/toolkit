@@ -14,6 +14,7 @@ export class CAppStore{
 			reporitories: observable,
 			repo: observable,
 			setToken:action,
+			setSearch:action,
 			setReporitories:action,
 			setRepo:action,
         })
