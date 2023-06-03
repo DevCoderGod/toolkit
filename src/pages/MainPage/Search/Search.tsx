@@ -18,6 +18,7 @@ export const Search = observer(function Search(){
 				value={Store.search}
 				onChange={e => onChange(e)}
 			/>
+			<div>{`Всего: ${Store.repositoryCount}`}</div>
 		</div>
 	)
 })

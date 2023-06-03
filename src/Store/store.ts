@@ -7,6 +7,7 @@ export class CAppStore{
 	search: string
 	amount: number
 	reporitories: TListRepository[]
+	repositoryCount:number
 	repo: IRepository | null
 
 	constructor() {
@@ -15,16 +16,19 @@ export class CAppStore{
 			search: observable,
 			amount: observable,
 			reporitories: observable,
+			repositoryCount: observable,
 			repo: observable,
 			setToken:action,
 			setSearch:action,
 			setReporitories:action,
+			setRepositoryCount:action,
 			setRepo:action,
         })
 		this.token = localStorage.getItem("token") ?? ""
 		this.search = ""
 		this.amount = 10
 		this.reporitories = []
+		this.repositoryCount = 0
 		this.repo = null
 	}
 
@@ -44,6 +48,10 @@ export class CAppStore{
 
 	setReporitories = (rs:TListRepository[]) => {
 		this.reporitories = rs
+	}
+
+	setRepositoryCount = (c:number) => {
+		this.repositoryCount = c
 	}
 }
 
