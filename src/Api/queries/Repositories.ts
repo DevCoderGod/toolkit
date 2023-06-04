@@ -34,4 +34,29 @@ export const Repository = {
 			}
 		}`
 	,
+
+	repo: (name:string, ownerName:string) =>
+		`query{
+			repository(name:"${name}",owner:"${ownerName}") {
+				id
+				name
+				stargazerCount
+				updatedAt
+				owner{
+					login
+					avatarUrl
+				}
+				languages(first:20) {
+					totalCount
+					edges {
+						node {
+							name
+						}
+					}
+				}
+				description
+				url
+			}
+		}`
+	,
 }

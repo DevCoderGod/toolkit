@@ -1,4 +1,4 @@
-import { TListRepository } from '../types/Repository'
+import { IRepository, TListRepository } from '../types/Repository'
 import { getRepositories } from './helpers/getRepositories'
 import { queries } from './queries'
 
@@ -66,6 +66,22 @@ export const api = { // TODO api to class Api{constructor(token:string)}
 			.then(d => ({
 				repositoryCount: d.data.search.repositoryCount,
 				cursor: d.data.search.pageInfo.endCursor
+			}))
+	},
+
+	repository: async(token:string, name:string, ownerName:string):Promise<IRepository> => {
+		return await gqlQuery(token, queries.Repository.repo(name,ownerName))
+			.then(d => {console.log("d === ",d); return d.data.repository})
+			.then(d => ({
+				id: d.id,
+				name: d.name,
+				stars: d.stargazerCount,
+				last_commit: d.updatedAt,
+				avatar: d.owner.avatarUrl,
+				ownerName: d.owner.login,
+				link: d.owner.url,
+				languages: d.languages.edges.map((e:any) => e.node.name),
+				description: d.description ?? "",
 			}))
 	},
 }
