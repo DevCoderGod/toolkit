@@ -16,7 +16,7 @@ export const Search = observer(function Search(){
 			<input
 				id='searchInput'
 				value={Store.search}
-				onChange={e => onChange(e)}
+				onChange={e => onChange(e)} // TODO debounce
 			/>
 			<div>{`Всего: ${Store.repositoryCount}`}</div>
 		</div>
