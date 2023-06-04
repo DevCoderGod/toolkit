@@ -16,5 +16,12 @@
 
 .pag {
 	margin: 0 5px;
+	padding: 0 5px;
+	border: solid 1px #252446;
+	border-radius: 5px;
+	cursor: pointer;
+}
 
+.active {
+	background-color: #ff9284;
 }

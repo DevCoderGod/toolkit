@@ -1,14 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { observer } from 'mobx-react-lite'
 import S from './Paginator.module.scss'
 import cn from 'classnames'
 import { Pag } from './Pag'
+import { Store } from '../../../Store/store'
 
-const pages = [1,2,3,4,5,6,7,8,9,10]
+export const Paginator = observer(function Paginator(){
+	function* getPages(){
+		for(let i=0; i<Store.pages;i++) yield i+1
+	}
 
-export const Paginator = () => {
 	return(
 		<div className={cn(S.paginator)}>
-			{pages.map(d=><Pag key={d} num={d}/>)}
+			{[...getPages()].map(n =>
+				<Pag
+					key={n}
+					active={Store.currentPage === n}
+					num={n}
+					onClick={()=>{
+						Store.setCurrentPage(n)
+						Store.setNewPage(true)
+					}}
+				/>)
+			}
 		</div>
 	)
-}
+})
