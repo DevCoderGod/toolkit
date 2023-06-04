@@ -13,7 +13,14 @@ export const Item = (props:IProps) => {
 			<span className={cn(S.field, S.name)}>{props.repo.name}</span>
 			<span className={cn(S.field, S.stars)}>{props.repo.stars}</span>
 			<span className={cn(S.field, S.date)}>{props.repo.last_commit}</span>
-			<span className={cn(S.field, S.link)}>{props.repo.link}</span>
+			<span className={cn(S.field, S.link)}>
+				<a
+					href={props.repo.link}
+					target='blank'
+				>
+					{props.repo.link}
+				</a>
+			</span>
 		</div>
 	)
 }

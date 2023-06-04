@@ -4,20 +4,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	&::before {
-		content: "[";
-		margin-bottom: 2px;
+	&::before, &::after {
+		font-size: 28px;
+		font-weight: 700;
+		color: #777;
+		content: "<";
+		margin-bottom: 4px;
 	}
 	&::after {
-		content: "]";
-		margin-bottom: 2px;
+		content: ">";
 	}
 }
 
 .pag {
 	margin: 0 5px;
 	padding: 0 5px;
-	border: solid 1px #252446;
+	box-shadow: inset 1px 1px #ddd, inset -1px -1px #777;
 	border-radius: 5px;
 	cursor: pointer;
 }
