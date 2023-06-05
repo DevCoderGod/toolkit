@@ -19,6 +19,12 @@ export const Header = observer(function Header(){
 				value={Store.token}
 				onChange={e => onChange(e)}
 			/>
+			{Store.repo && <div
+				className={cn(S.back)}
+				onClick = {() => Store.setRepo(null)} 
+			>
+				к списку
+			</div>}
 		</div>
 	)
 })

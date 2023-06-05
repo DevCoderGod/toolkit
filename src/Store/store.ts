@@ -72,8 +72,10 @@ export class CAppStore{
 		this.newPage = n
 	}
 
-	setRepo = async(name:string, ownerName:string) => {
-		this.repo = await api.repository(this.token, name, ownerName)
+	setRepo = async(params:{name:string, ownerName:string} | null) => {
+		this.repo = params
+		? await api.repository(this.token, params.name, params.ownerName)
+		: null
 	}
 
 	setReporitories = (rs:TListRepository[]) => {
