@@ -1,0 +1,47 @@
+.list{
+	background-color: #eee;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 0;
+	overflow: auto;
+}
+
+.item {
+	cursor: pointer;
+	box-shadow: inset 1px 1px #ddd, inset -1px -1px #ddd;
+	display: flex;
+	width: 100%;
+
+	.field {
+		margin: 5px;
+		overflow: hidden;
+	}
+	& > {
+		:nth-child(1) {
+			flex-grow: 1;
+		}
+	}
+	&:hover{
+		box-shadow: inset 1px 1px #777, inset -1px -1px #777;
+	}
+}
+
+.name {
+	max-width: 690px;
+}
+
+.stars {
+	width: 80px;
+}
+
+.date {
+	width: 160px;
+}
+
+.link {
+	width: 250px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: left;
+}

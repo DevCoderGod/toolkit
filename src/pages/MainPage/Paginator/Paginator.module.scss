@@ -1,0 +1,32 @@
+.paginator {
+	background-color: #ccc;
+	min-height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&::before, &::after {
+		font-size: 28px;
+		font-weight: 700;
+		color: #777;
+		content: "<";
+		margin-bottom: 4px;
+	}
+	&::after {
+		content: ">";
+	}
+}
+
+.pag {
+	margin: 0 5px;
+	padding: 0 5px;
+	box-shadow: inset 1px 1px #ddd, inset -1px -1px #777;
+	border-radius: 5px;
+	cursor: pointer;
+	&:hover{
+		box-shadow: inset 1px 1px #777, inset -1px -1px #777;
+	}
+}
+
+.active {
+	background-color: #ff9284;
+}
