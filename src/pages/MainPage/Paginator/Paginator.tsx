@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import S from './Paginator.module.scss'
 import cn from 'classnames'

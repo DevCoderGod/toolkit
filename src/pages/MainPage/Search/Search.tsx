@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import S from './Search.module.scss'
 import cn from 'classnames'

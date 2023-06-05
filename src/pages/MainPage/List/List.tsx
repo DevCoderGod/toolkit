@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react'
 import S from './List.module.scss'
 import cn from 'classnames'
 import { Item } from './Item'

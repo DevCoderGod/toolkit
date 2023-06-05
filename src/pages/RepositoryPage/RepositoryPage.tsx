@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react'
 import S from './RepositoryPage.module.scss'
 import cn from 'classnames'
 import { IRepository } from '../../types/Repository'
