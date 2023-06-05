@@ -51,7 +51,6 @@ export const api = { // TODO api to class Api{constructor(token:string)}
 		repositories:TListRepository[]
 	}> => {
 		return await gqlQuery(token, queries.Repository.search(name, amount, after))
-			// .then(d => {console.log("d === ",d); return d})
 			.then(d => ({
 				repositoryCount: d.data.search.repositoryCount,
 				repositories: getRepositories(d.data.search)
@@ -71,7 +70,7 @@ export const api = { // TODO api to class Api{constructor(token:string)}
 
 	repository: async(token:string, name:string, ownerName:string):Promise<IRepository> => {
 		return await gqlQuery(token, queries.Repository.repo(name,ownerName))
-			.then(d => {console.log("d === ",d); return d.data.repository})
+			.then(d => d.data.repository)
 			.then(d => ({
 				id: d.id,
 				name: d.name,

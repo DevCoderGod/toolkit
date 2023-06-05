@@ -23,7 +23,7 @@ export const RepositoryPage = (props:IProps) => {
 					</div>
 				</div>
 				<div className={cn(S.description)}>{props.repo.description}</div>
-				<div className={cn(S.languages)}>{props.repo.languages.map(l =><span>{l}</span>)}</div>
+				<div className={cn(S.languages)}>{props.repo.languages.map(l =><span key={l}>{l}</span>)}</div>
 			</div>
 		</div>
 	)

@@ -17,7 +17,10 @@ export const Item = (props:IProps) => {
 			<span className={cn(S.field, S.name)}>{props.repo.name}</span>
 			<span className={cn(S.field, S.stars)}>{props.repo.stars}</span>
 			<span className={cn(S.field, S.date)}>{props.repo.last_commit}</span>
-			<span className={cn(S.field, S.link)}>
+			<span
+				className={cn(S.field, S.link)}
+				onClick={e => e.stopPropagation()}
+			>
 				<a
 					href={props.repo.link}
 					target='blank'
